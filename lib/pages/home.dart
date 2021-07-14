@@ -3,8 +3,11 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:myapp/dao/home_dao.dart';
 import 'package:myapp/model/common_model.dart';
 import 'package:myapp/model/grid_nav_model.dart';
+import 'package:myapp/model/sales_box_model.dart';
 import 'package:myapp/widget/grid_nav.dart';
 import 'package:myapp/widget/local_nav.dart';
+import 'package:myapp/widget/sales_box.dart';
+import 'package:myapp/widget/sub_nav.dart';
 
 const APPBAR_SCROLL_OFFSET = 100;
 
@@ -22,7 +25,9 @@ class _HomePage extends State<HomePage> {
   double appBarAlpha = 0.0;
   String resultString = '';
   List<CommonModel> localNavList = [];
+  List<CommonModel> subNavList = [];
   GridNavModel gridNavModel;
+  SalesBoxModel salesBoxModel;
 
   @override
   void initState() {
@@ -36,6 +41,8 @@ class _HomePage extends State<HomePage> {
         print(value);
         localNavList = value.localNavList;
         gridNavModel = value.gridNav;
+        subNavList = value.subNavList;
+        salesBoxModel = value.salesBox;
         // gridNavModel = value.gridNavModel;
         // resultString = json.encode(value.localNavList);
       });
@@ -94,11 +101,20 @@ class _HomePage extends State<HomePage> {
                             child: LocalNav(localNavList: localNavList)),
                         Padding(
                           padding: EdgeInsets.fromLTRB(
-                              7, 0, 7, 0),
+                              7, 0, 7, 4),
                           child: GridNav(gridNavModel: gridNavModel),
                         ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(
+                              7, 0, 7, 4),
+                          child: SubNav(subNavList: subNavList),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(
+                              7, 0, 7, 4),
+                          child: SalesBox(salesBox: salesBoxModel),
+                        ),
                         Container(
-                          height: 800,
                           child: ListTile(
                             title: Text(resultString),
                           ),
