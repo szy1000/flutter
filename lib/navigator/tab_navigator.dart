@@ -29,6 +29,7 @@ class _TabNavigatorState extends State<TabNavigator> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
+        selectedLabelStyle: TextStyle(color: _activeColor),
         type: BottomNavigationBarType.fixed,
         onTap: (index) {
           _controller.jumpToPage(index);
@@ -46,10 +47,7 @@ class _TabNavigatorState extends State<TabNavigator> {
                 Icons.home,
                 color: _activeColor,
               ),
-              title: Text('首页',
-                  style: TextStyle(
-                      color:
-                          _currentIndex != 0 ? _defaultColor : _activeColor))),
+              label: '首页'),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.search,
@@ -59,10 +57,7 @@ class _TabNavigatorState extends State<TabNavigator> {
                 Icons.search,
                 color: _activeColor,
               ),
-              title: Text('搜索',
-                  style: TextStyle(
-                      color:
-                          _currentIndex != 1 ? _defaultColor : _activeColor))),
+              label: '搜索'),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.event_note_outlined,
@@ -72,23 +67,18 @@ class _TabNavigatorState extends State<TabNavigator> {
                 Icons.event_note_outlined,
                 color: _activeColor,
               ),
-              title: Text('笔记',
-                  style: TextStyle(
-                      color:
-                          _currentIndex != 2 ? _defaultColor : _activeColor))),
+              label: '笔记'),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.account_circle,
-                color: _defaultColor,
-              ),
-              activeIcon: Icon(
-                Icons.account_circle,
-                color: _activeColor,
-              ),
-              title: Text('我的',
-                  style: TextStyle(
-                      color:
-                          _currentIndex != 3 ? _defaultColor : _activeColor))),
+            icon: Icon(
+              Icons.account_circle,
+              color: _defaultColor,
+            ),
+            activeIcon: Icon(
+              Icons.account_circle,
+              color: _activeColor,
+            ),
+            label: '我的',
+          ),
         ],
       ),
     );

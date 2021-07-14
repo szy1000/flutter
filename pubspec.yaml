@@ -31,6 +31,7 @@ dependencies:
   english_words: ^3.1.0
   flutter_swiper : ^1.1.6
   http: ^0.13.3
+  flutter_webview_plugin: ^0.3.11
 
 dev_dependencies:
   flutter_test:

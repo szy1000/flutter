@@ -47,5 +47,6 @@ class HomeModel {
     if (this.config != null) {
       data['config'] = this.config.toJson();
     }
+    return data;
   }
 }
