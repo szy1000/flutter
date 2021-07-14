@@ -114,11 +114,11 @@ class _HomePage extends State<HomePage> {
                               7, 0, 7, 4),
                           child: SalesBox(salesBox: salesBoxModel),
                         ),
-                        Container(
-                          child: ListTile(
-                            title: Text(resultString),
-                          ),
-                        )
+                        // Container(
+                        //   child: ListTile(
+                        //     title: Text(resultString),
+                        //   ),
+                        // )
                       ],
                     ))),
             Opacity(
