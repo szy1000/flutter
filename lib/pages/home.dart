@@ -2,6 +2,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:myapp/dao/home_dao.dart';
+import 'package:myapp/model/common_model.dart';
+import 'package:myapp/widget/grid_nav.dart';
+import 'package:myapp/widget/local_nav.dart';
 
 const APPBAR_SCROLL_OFFSET = 100;
 
@@ -18,6 +21,7 @@ class _HomePage extends State<HomePage> {
   ];
   double appBarAlpha = 0.0;
   String resultString = '';
+  List<CommonModel> localNavList = [];
 
   @override
   void initState() {
@@ -28,7 +32,9 @@ class _HomePage extends State<HomePage> {
   loadData() {
     HomeDao.fetch().then((value) {
       setState(() {
-        resultString = json.encode(value);
+        print(value);
+        localNavList = value.localNavList;
+        resultString = json.encode(value.localNavList);
       });
     }).catchError((e) {
       setState(() {
@@ -79,6 +85,10 @@ class _HomePage extends State<HomePage> {
                             },
                           ),
                         ),
+                        Padding(padding: EdgeInsets.fromLTRB(
+                            7, 4, 7, 4),
+                            child: LocalNav(localNavList: localNavList)),
+                        GridNav(gridNavModel: null, name: 'Shenzhiyong'),
                         Container(
                           height: 800,
                           child: ListTile(
