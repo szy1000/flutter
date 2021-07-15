@@ -125,11 +125,15 @@ class _WebViewState extends State<WebView> {
       );
     }
     return Container(
+      padding: EdgeInsets.fromLTRB(0, 38, 0, 10),
       child: FractionallySizedBox(
         widthFactor: 1,
         child: Stack(
           children: <Widget>[
             GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
                 child: Container(
                   margin: EdgeInsets.only(left: 10),
                   child: Icon(Icons.close, color: backButtonColor, size: 26),
